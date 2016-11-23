@@ -33,10 +33,18 @@ exports.handle = (client) => {
     extractInfo()
     {
          const jobrole = firstOfEntityRole(client.getMessagePart(), 'jobrole');
+         const location = firstOfEntityRole(client.getMessagePart(), 'location');
          if(jobrole)
          {
            	client.updateConversationState({
 		    jobRole: jobrole
+		  })
+         }
+         if(location)
+         {
+                console.log("Setting Location to " + location.value);
+           	client.updateConversationState({
+		    jobLocation: location
 		  })
          }
     },
@@ -107,7 +115,8 @@ exports.handle = (client) => {
       // map inbound message classifications to names of streams
         'greeting/generic':'ensureSteps',
         'provide/searchresults':'ensureSteps',
-        'respond/jobrole':'ensureSteps'
+        'respond/jobrole':'ensureSteps',
+        'request/jobinfo':'ensureSteps'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model

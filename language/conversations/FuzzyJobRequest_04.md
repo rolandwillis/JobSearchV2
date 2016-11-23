@@ -1,5 +1,5 @@
 ---
-title: FuzzyJobRequest_01
+title: FuzzyJobRequest_03
 timestamp: 2016-11-23T15:01:59.682225424Z
 ---
 
@@ -9,20 +9,14 @@ hi
 < hi, how can I help?
 * greeting/offerservice
 
-got any jobs mate?
-* request/jobinfo_generic
+got any jobs in [Bristol](location) mate?
+* request/jobinfo_location
 
-< hopefully :) What kind of job were you after?
+< What kind of job were you after?
 * request/jobrole
 
-any [engineering](jobrole) job really
+[engineering](jobrole)?
 * response/jobrole
-
-< what area should I search?
-* request/location
-
-Please try [Bristol](location)
-* response/location
 
 < I found [4](jobcount) [engineering](jobrole) jobs near [Bristol](location). Look here >> [http://google.co.uk](searchlink)
 * provide/searchresults
