@@ -84,6 +84,7 @@ exports.handle = (client) => {
        	client.updateConversationState({
                     jobRole:null,
                     jobLocation:null,
+                    greetedUser:false,
 		    resultsSent: true
 		  })
       client.done()
