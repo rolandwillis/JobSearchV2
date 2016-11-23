@@ -77,7 +77,7 @@ exports.handle = (client) => {
             location : client.getConversationState().jobLocation.value,
             jobcount : "2",
             jobrole: client.getConversationState().jobRole.value,
-            searchlink:"http://google.co.uk?q=" + client.getConversationState().jobRole.value
+            searchlink:"http://google.co.uk?q=" + client.getConversationState().jobRole.value + "jobs%20in%20" + client.getConversationState().jobLocation.value
         }
         
       client.addResponse('provide/searchresults',searchResults)
