@@ -26,7 +26,7 @@ exports.handle = (client) => {
          }
     },
     prompt() {
-      client.addResponse('prompt/specify_jobrole')
+      client.addResponse('request/jobrole')
       client.done()
     }
   })
@@ -37,7 +37,7 @@ exports.handle = (client) => {
     },
     extractInfo()
     {
-         const joblocation = firstOfEntityRole(client.getMessagePart(), 'city');
+         const joblocation = firstOfEntityRole(client.getMessagePart(), 'location');
          if(joblocation)
          {
            	client.updateConversationState({
@@ -46,7 +46,7 @@ exports.handle = (client) => {
          }
     },
     prompt() {
-      client.addResponse('prompt/specify_city')
+      client.addResponse('request/location')
       client.done()
     }
   })
@@ -61,10 +61,10 @@ exports.handle = (client) => {
             city : client.getConversationState().jobLocation.value,
             jobcount : "2",
             jobrole: client.getConversationState().jobRole.value,
-            jobboardlink:"http://google.co.uk?q=" + client.getConversationState().jobRole.value
+            searchlink:"http://google.co.uk?q=" + client.getConversationState().jobRole.value
         }
         
-      client.addResponse('information_response/available_jobs',searchResults)
+      client.addResponse('provide/searchresults',searchResults)
        	client.updateConversationState({
 		    resultsSent: true
 		  })
@@ -87,8 +87,8 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
         'greeting/generic':'ensureSteps',
-        'information_request/available_jobs':'ensureSteps',
-        'response/specify_jobrole':'ensureSteps'
+        'provide/searchresults':'ensureSteps',
+        'respond/jobrole':'ensureSteps'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
