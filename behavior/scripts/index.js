@@ -11,6 +11,21 @@ const firstOfEntityRole = function(message, entity, role) {
 
 exports.handle = (client) => {
   // Create steps
+    
+    const greet = client.createStep({
+    satisfied() {
+     return Boolean(client.getConversationState().greetedUser)
+    },
+
+    prompt() {
+      client.addResponse('greeting/offerservice')
+      client.updateConversationState({
+          greetedUser:true,
+    })
+      client.done()
+    }
+  })
+    
   const getJobRole = client.createStep({
     satisfied() {
       return Boolean(client.getConversationState().jobRole)
@@ -43,6 +58,7 @@ exports.handle = (client) => {
            	client.updateConversationState({
 		    jobLocation: joblocation
 		  })
+                console.log("Location defined as :" + joblocation.value);
          }
     },
     prompt() {
@@ -58,7 +74,7 @@ exports.handle = (client) => {
 
     prompt() {
         let searchResults = {
-            city : client.getConversationState().jobLocation.value,
+            location : client.getConversationState().jobLocation.value,
             jobcount : "2",
             jobrole: client.getConversationState().jobRole.value,
             searchlink:"http://google.co.uk?q=" + client.getConversationState().jobRole.value
@@ -66,6 +82,8 @@ exports.handle = (client) => {
         
       client.addResponse('provide/searchresults',searchResults)
        	client.updateConversationState({
+                    jobRole:null,
+                    jobLocation:null,
 		    resultsSent: true
 		  })
       client.done()
@@ -95,7 +113,7 @@ exports.handle = (client) => {
     },
     streams: {
       main: 'ensureSteps',
-      ensureSteps: [getJobRole,getLocation,provideResults],
+      ensureSteps: [greet,getJobRole,getLocation,provideResults],
       end: [goodbye],
     },
   })

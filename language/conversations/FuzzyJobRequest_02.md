@@ -3,6 +3,12 @@ title: FuzzyJobRequest_01
 timestamp: 2016-11-23T15:01:59.682225424Z
 ---
 
+hi
+* greeting/generic
+
+< hi, how can I help?
+* greeting/offerservice
+
 got any jobs mate?
 * request/jobinfo
 
