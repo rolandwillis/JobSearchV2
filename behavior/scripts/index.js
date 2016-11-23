@@ -14,9 +14,25 @@ exports.handle = (client) => {
     
     const greet = client.createStep({
     satisfied() {
-     return Boolean(client.getConversationState().greetedUser)
+     return Boolean(client.getConversationState().greetedUser) ||  Boolean(client.getConversationState().jobLocation) || Boolean(client.getConversationState().jobRole) ;
     },
-
+    extractInfo(){
+        const jobrole = firstOfEntityRole(client.getMessagePart(), 'jobrole');
+         const location = firstOfEntityRole(client.getMessagePart(), 'location');
+         if(jobrole)
+         {
+           	client.updateConversationState({
+		    jobRole: jobrole
+		  })
+         }
+         if(location)
+         {
+                console.log("Setting Location to " + location.value);
+           	client.updateConversationState({
+		    jobLocation: location
+		  })
+         }
+    },
     prompt() {
       client.addResponse('greeting/offerservice')
       client.updateConversationState({
@@ -116,7 +132,8 @@ exports.handle = (client) => {
         'greeting/generic':'ensureSteps',
         'provide/searchresults':'ensureSteps',
         'respond/jobrole':'ensureSteps',
-        'request/jobinfo':'ensureSteps'
+        'request/jobinfo':'ensureSteps',
+        'goodbye':'end'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model

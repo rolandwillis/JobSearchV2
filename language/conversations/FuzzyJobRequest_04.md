@@ -10,7 +10,7 @@ hi
 * greeting/offerservice
 
 got any jobs in [Bristol](location) mate?
-* request/jobinfo_location
+* request/jobinfo
 
 < What kind of job were you after?
 * request/jobrole
