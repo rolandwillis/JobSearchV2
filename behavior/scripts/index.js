@@ -86,6 +86,8 @@ exports.handle = (client) => {
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
+        'greeting':'ensureSteps',
+        'information_request/available_jobs':'ensureSteps'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
