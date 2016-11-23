@@ -87,7 +87,8 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
         'greeting/generic':'ensureSteps',
-        'information_request/available_jobs':'ensureSteps'
+        'information_request/available_jobs':'ensureSteps',
+        'response/specify_jobrole':'ensureSteps'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
