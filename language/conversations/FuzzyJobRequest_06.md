@@ -1,5 +1,5 @@
 ---
-title: FuzzyJobRequest_02
+title: FuzzyJobRequest_01
 timestamp: 2016-11-23T15:01:59.682225424Z
 ---
 
@@ -9,7 +9,7 @@ hi
 < hi, how can I help?
 * greeting/offerservice
 
-Have you got any jobs?
+got any jobs mate?
 * request/jobinfo_generic
 
 < What kind of job were you after?

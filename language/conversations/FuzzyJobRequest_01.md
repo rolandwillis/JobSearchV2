@@ -6,7 +6,7 @@ timestamp: 2016-11-23T15:01:59.682225424Z
 got any jobs mate?
 * request/jobinfo_generic
 
-< hopefully :) What kind of job were you after?
+< What kind of job were you after?
 * request/jobrole
 
 any [engineering](jobrole) job really

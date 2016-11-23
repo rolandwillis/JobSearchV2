@@ -1,28 +1,22 @@
 ---
-title: FuzzyJobRequest_03
+title: FuzzyJobRequest_04
 timestamp: 2016-11-23T15:01:59.682225424Z
 ---
 
 hi
-* greeting/generic
+* greeting
 
 < hi, how can I help?
 * greeting/offerservice
 
-got any jobs in [Bristol](location) mate?
-* request/jobinfo
+i don't know
+* decline
 
-< What kind of job were you after?
+< Well this is a recruitment channel so let's start by asking what kind of job were you after?
 * request/jobrole
 
-[engineering](jobrole)?
-* response/jobrole
+i dont know
+* response/dontknowjob
 
-< I found [4](jobcount) [engineering](jobrole) jobs near [Bristol](location). Look here >> [http://google.co.uk](searchlink)
-* provide/searchresults
-
-thanks
-* thanks
-
-< no problem.
+< no problem. come back when you figured it out :)
 * goodbye/temporal

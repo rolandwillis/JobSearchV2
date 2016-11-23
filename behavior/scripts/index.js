@@ -66,6 +66,7 @@ exports.handle = (client) => {
     },
     prompt() {
       client.addResponse('request/jobrole')
+    //  client.expect(client.getStreamName(), ['end', 'affirmative', 'negative'])
       client.done()
     }
   })
